@@ -2,7 +2,6 @@
   "schema": {
     "request": {
       "url": "https://graphql-pokemon.now.sh/",
-      "method" : "POST",
       "postIntrospectionQuery" : true
     }
   },
