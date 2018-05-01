@@ -5,6 +5,7 @@ import android.arch.paging.PagedList
 import android.arch.paging.RxPagedListBuilder
 import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class PokemonViewModel : ViewModel() {
@@ -22,7 +23,7 @@ class PokemonViewModel : ViewModel() {
 
     init {
         pokemons = RxPagedListBuilder(PokemonDataSourceFactory(ApiClient()), config)
-                .setFetchScheduler(Schedulers.io())
+                .setFetchScheduler(AndroidSchedulers.mainThread())
                 .buildFlowable(BackpressureStrategy.LATEST)
     }
 
