@@ -1,0 +1,53 @@
+query Pokemons($first: Int!) {
+    pokemons(first: $first) {
+        ...Pokemon
+    }
+}
+
+query Pokemon($id: String, $name: String) {
+    pokemon(id: $id, name: $name) {
+        ...Pokemon
+    }
+}
+
+fragment Pokemon on Pokemon {
+    id
+    number
+    name
+    weight {
+        minimum
+        maximum
+    }
+    height {
+        minimum
+        maximum
+    }
+    classification
+    types
+    resistant
+    attacks {
+        special {
+            damage
+            name
+            type
+        }
+        fast {
+            damage
+            name
+            type
+        }
+    }
+    weaknesses
+    fleeRate
+    maxCP
+    evolutions {
+    	id
+        name
+    }
+    evolutionRequirements {
+        name
+        amount
+    }
+    maxHP
+    image
+}
